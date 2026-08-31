@@ -1,0 +1,574 @@
+{
+  "info": {
+    "_postman_id": "c62e35b3-5e45-4844-a58c-b8d6c8de81e2",
+    "name": "Assignment_6(MongoDB)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51803426",
+    "_collection_link": "https://go.postman.co/collection/51803426-c62e35b3-5e45-4844-a58c-b8d6c8de81e2?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "collection",
+      "item": [
+        {
+          "name": "create books collection",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/collection/books",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "collection",
+                "books"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create authors collection",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/collection/authors",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "collection",
+                "authors"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create logs capped collection",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/collection/logs/capped",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "collection",
+                "logs",
+                "capped"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create books title index",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/collection/books/index",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "collection",
+                "books",
+                "index"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "books",
+      "item": [
+        {
+          "name": "add book",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Future\",\r\n    \"author\": \"google orwel\",\r\n    \"year\": 2020,\r\n    \"genres\": [\"Science fiction\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/books",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add books batch",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"title\": \"Brave New World\",\r\n    \"author\": \"Aldous Huxley\",\r\n    \"year\": 1932,\r\n    \"genres\": [\"Science Fiction\", \"Dystopian\"]\r\n  },\r\n  {\r\n    \"title\": \"The Road\",\r\n    \"author\": \"Cormac McCarthy\",\r\n    \"year\": 2006,\r\n    \"genres\": [\"Drama\", \"Post-Apocalyptic\"]\r\n  },\r\n  {\r\n    \"title\": \"It\",\r\n    \"author\": \"Stephen King\",\r\n    \"year\": 1986,\r\n    \"genres\": [\"Horror\"]\r\n  },\r\n  {\r\n    \"title\": \"The Martian\",\r\n    \"author\": \"Andy Weir\",\r\n    \"year\": 2011,\r\n    \"genres\": [\"Science Fiction\"]\r\n  },\r\n  {\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"J.K. Rowling\",\r\n    \"year\": 1997,\r\n    \"genres\": [\"Fantasy\"]\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/books/batch",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "batch"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update the book with title “Future”",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Future\",\r\n    \"author\": \"google orwel\",\r\n    \"year\": 2020,\r\n    \"genres\": [\"Science fiction\"]\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/books/Future",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "Future"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "find book by title",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"title\": \"Brave New World\",\r\n    \"author\": \"Aldous Huxley\",\r\n    \"year\": 1932,\r\n    \"genres\": [\"Science Fiction\", \"Dystopian\"]\r\n  },\r\n  {\r\n    \"title\": \"The Road\",\r\n    \"author\": \"Cormac McCarthy\",\r\n    \"year\": 2006,\r\n    \"genres\": [\"Drama\", \"Post-Apocalyptic\"]\r\n  },\r\n  {\r\n    \"title\": \"It\",\r\n    \"author\": \"Stephen King\",\r\n    \"year\": 1986,\r\n    \"genres\": [\"Horror\"]\r\n  },\r\n  {\r\n    \"title\": \"The Martian\",\r\n    \"author\": \"Andy Weir\",\r\n    \"year\": 2011,\r\n    \"genres\": [\"Science Fiction\"]\r\n  },\r\n  {\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"J.K. Rowling\",\r\n    \"year\": 1997,\r\n    \"genres\": [\"Fantasy\"]\r\n  }\r\n]"
+            },
+            "url": {
+              "raw": "http://localhost:3000/books/title?title=Brave New World",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "title"
+              ],
+              "query": [
+                {
+                  "key": "title",
+                  "value": "Brave New World"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "find books by year",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"title\": \"Brave New World\",\r\n    \"author\": \"Aldous Huxley\",\r\n    \"year\": 1932,\r\n    \"genres\": [\"Science Fiction\", \"Dystopian\"]\r\n  },\r\n  {\r\n    \"title\": \"The Road\",\r\n    \"author\": \"Cormac McCarthy\",\r\n    \"year\": 2006,\r\n    \"genres\": [\"Drama\", \"Post-Apocalyptic\"]\r\n  },\r\n  {\r\n    \"title\": \"It\",\r\n    \"author\": \"Stephen King\",\r\n    \"year\": 1986,\r\n    \"genres\": [\"Horror\"]\r\n  },\r\n  {\r\n    \"title\": \"The Martian\",\r\n    \"author\": \"Andy Weir\",\r\n    \"year\": 2011,\r\n    \"genres\": [\"Science Fiction\"]\r\n  },\r\n  {\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"J.K. Rowling\",\r\n    \"year\": 1997,\r\n    \"genres\": [\"Fantasy\"]\r\n  }\r\n]"
+            },
+            "url": {
+              "raw": "http://localhost:3000/books/year?from=1990&to=2010",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "year"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "1990"
+                },
+                {
+                  "key": "to",
+                  "value": "2010"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "find books by genre",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"title\": \"Brave New World\",\r\n    \"author\": \"Aldous Huxley\",\r\n    \"year\": 1932,\r\n    \"genres\": [\"Science Fiction\", \"Dystopian\"]\r\n  },\r\n  {\r\n    \"title\": \"The Road\",\r\n    \"author\": \"Cormac McCarthy\",\r\n    \"year\": 2006,\r\n    \"genres\": [\"Drama\", \"Post-Apocalyptic\"]\r\n  },\r\n  {\r\n    \"title\": \"It\",\r\n    \"author\": \"Stephen King\",\r\n    \"year\": 1986,\r\n    \"genres\": [\"Horror\"]\r\n  },\r\n  {\r\n    \"title\": \"The Martian\",\r\n    \"author\": \"Andy Weir\",\r\n    \"year\": 2011,\r\n    \"genres\": [\"Science Fiction\"]\r\n  },\r\n  {\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"J.K. Rowling\",\r\n    \"year\": 1997,\r\n    \"genres\": [\"Fantasy\"]\r\n  }\r\n]"
+            },
+            "url": {
+              "raw": "http://localhost:3000/books/genre?genre=Science Fiction",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "genre"
+              ],
+              "query": [
+                {
+                  "key": "genre",
+                  "value": "Science Fiction"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "skip limit books",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"title\": \"Brave New World\",\r\n    \"author\": \"Aldous Huxley\",\r\n    \"year\": 1932,\r\n    \"genres\": [\"Science Fiction\", \"Dystopian\"]\r\n  },\r\n  {\r\n    \"title\": \"The Road\",\r\n    \"author\": \"Cormac McCarthy\",\r\n    \"year\": 2006,\r\n    \"genres\": [\"Drama\", \"Post-Apocalyptic\"]\r\n  },\r\n  {\r\n    \"title\": \"It\",\r\n    \"author\": \"Stephen King\",\r\n    \"year\": 1986,\r\n    \"genres\": [\"Horror\"]\r\n  },\r\n  {\r\n    \"title\": \"The Martian\",\r\n    \"author\": \"Andy Weir\",\r\n    \"year\": 2011,\r\n    \"genres\": [\"Science Fiction\"]\r\n  },\r\n  {\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"J.K. Rowling\",\r\n    \"year\": 1997,\r\n    \"genres\": [\"Fantasy\"]\r\n  }\r\n]"
+            },
+            "url": {
+              "raw": "http://localhost:3000/books/skip-limit",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "skip-limit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "find integer year books",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"title\": \"Brave New World\",\r\n    \"author\": \"Aldous Huxley\",\r\n    \"year\": 1932,\r\n    \"genres\": [\"Science Fiction\", \"Dystopian\"]\r\n  },\r\n  {\r\n    \"title\": \"The Road\",\r\n    \"author\": \"Cormac McCarthy\",\r\n    \"year\": 2006,\r\n    \"genres\": [\"Drama\", \"Post-Apocalyptic\"]\r\n  },\r\n  {\r\n    \"title\": \"It\",\r\n    \"author\": \"Stephen King\",\r\n    \"year\": 1986,\r\n    \"genres\": [\"Horror\"]\r\n  },\r\n  {\r\n    \"title\": \"The Martian\",\r\n    \"author\": \"Andy Weir\",\r\n    \"year\": 2011,\r\n    \"genres\": [\"Science Fiction\"]\r\n  },\r\n  {\r\n    \"title\": \"Harry Potter\",\r\n    \"author\": \"J.K. Rowling\",\r\n    \"year\": 1997,\r\n    \"genres\": [\"Fantasy\"]\r\n  }\r\n]"
+            },
+            "url": {
+              "raw": "http://localhost:3000/books/year-integer",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "year-integer"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "exclude genres",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/books/exclude-genres",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "exclude-genres"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete books before year",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/books/before-year?year=1990",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "before-year"
+              ],
+              "query": [
+                {
+                  "key": "year",
+                  "value": "1990"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "aggregate1",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/books/aggregate1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "aggregate1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "aggregate2",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/books/aggregate2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "aggregate2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "aggregate3",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/books/aggregate3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "aggregate3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "aggregate4",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/books/aggregate4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "books",
+                "aggregate4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "logs",
+      "item": [
+        {
+          "name": "insert new log",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"bookId\": \"6a94e58042610a17b1639169\",\r\n  \"action\": \"borrowed\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/logs",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "logs"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
